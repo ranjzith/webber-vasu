@@ -1,0 +1,20 @@
+<div id="content_header"></div>
+<div id="site_content">
+<div id="content">
+  <H2>Create a database</H2>
+
+  <form name="createDBForm" id="createDBForm">
+    <div class="form_settings">
+      <p><span>Host</span>
+	  <select name="host" ng-model="cd_host" ng-options="item for item in masterData.form1List1">
+	  </select>
+	  </p>      
+	  <p><span>Database</span><input class="contact" type="text" name="db" ng-model="cd_db" value="" /></p>
+	  <p><span>Username</span><input class="contact" type="text" name="uname" ng-model="cd_uname" value="" /></p>
+	  <p style="padding-top: 15px"><span>&nbsp;</span><input class="submit" ng-click="createDB(cd_host, cd_db, cd_uname)" type="button" name="submit" value="submit" /></p>
+    </div>
+  </form>
+
+</div>
+</div>
+<div id="content_footer"></div>

@@ -1,0 +1,52 @@
+buildscript {
+    repositories {
+        mavenCentral()
+    }
+    dependencies {
+        classpath("org.springframework.boot:spring-boot-gradle-plugin:2.0.2.RELEASE")
+    }
+}
+
+apply plugin: 'java'
+apply plugin: 'eclipse'
+apply plugin: 'org.springframework.boot'
+apply plugin: 'io.spring.dependency-management'
+
+sourceCompatibility = 1.8
+targetCompatibility = 1.8
+
+task buildInfo {
+	def cmd = "git rev-parse --short HEAD"
+	def proc = cmd.execute()
+	ext.revision = proc.text.trim()
+	cmd = "git rev-parse --abbrev-ref HEAD"
+	proc = cmd.execute()
+	ext.branch = proc.text.trim()
+}
+
+bootJar {
+	bootJar.dependsOn buildInfo
+	manifest {
+		attributes(
+			'Branch': tasks.buildInfo.branch,
+			'Revision': tasks.buildInfo.revision,
+		)
+	}
+	baseName = project.name
+	version = '1.0.0'
+}
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+    compile("org.springframework.boot:spring-boot-starter-web")
+	compile("org.json:json:20090211")
+	compile group: 'com.fasterxml.jackson.core', name: 'jackson-core', version: '2.9.6'
+	compile group: 'com.fasterxml.jackson.core', name: 'jackson-databind', version: '2.9.6'
+	
+    testCompile('org.springframework.boot:spring-boot-starter-test')
+    testCompile('com.jayway.jsonpath:json-path')
+}
+

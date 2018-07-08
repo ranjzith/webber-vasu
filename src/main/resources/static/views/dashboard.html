@@ -1,0 +1,16 @@
+<div id="content_header"></div>
+<div id="site_content">
+<div id="content">
+	<h2>Process dashboard</h2>
+	<input class="submit refreshbutton" ng-click="getDashboardDetails()" type="button" name="submit" value="Refresh" /></p>
+	<div class="subtab" ng-class="{true: 'sel'}[tab == 'inprocess.html']" ng-click="changeTab('inprocess.html')">Inprocess</div>
+	<div class="subtab" ng-class="{true: 'sel'}[tab == 'completed.html']" ng-click="changeTab('completed.html')">Completed</div>
+	<div class="subtab" ng-class="{true: 'sel'}[tab == 'failed.html']" ng-click="changeTab('failed.html')">Failed</div>
+	<div ng-include="getLogTable()">
+	</div>
+	<p>Log for: {{curfilename}}</p>
+	<p><textarea readonly class="contact logtextarea" rows="8" cols="100" name="logContent" ng-model="currlog">{{currlog}}</textarea></p>
+
+</div>
+</div>
+<div id="content_footer"></div>

@@ -1,0 +1,15 @@
+<div id="logo">
+  <div id="logo_text">
+    <!-- class="logo_colour", allows you to change the colour of the text -->
+    <h1><a href="/?p=main">DBA<span class="logo_colour">Utilities</span></a></h1>
+    <h2>A simple web interface to perform DBA actions.</h2>
+  </div>
+</div>
+<div id="menubar">
+  <ul id="menu">
+    <!-- put class="selected" in the li tag for the selected page - to highlight which page you're on -->
+    <li ng-class="{true: 'selected'}[page == 'createUser.html']"><a href="" ng-click="changeToPage('createUser.html');">Create User</a></li>
+    <li ng-class="{true: 'selected'}[page == 'createDB.html']"><a href="" ng-click="changeToPage('createDB.html')">Create DB</a></li>
+    <li ng-class="{true: 'selected'}[page == 'dashboard.html']"><a href="" ng-click="changeToPage('dashboard.html')">Dashboard</a></li>
+  </ul>
+</div>

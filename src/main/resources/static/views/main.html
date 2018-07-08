@@ -1,0 +1,26 @@
+<!DOCTYPE HTML>
+<html>
+
+<head>
+  <title>DBA Utilities</title>
+  <meta name="description" content="A simple web interface to perform DBA actions." />
+  <meta name="keywords" content="DBA Utils" />
+  <meta http-equiv="content-type" content="text/html; charset=windows-1252" />
+  <script src="/js/lib/angular.min.js"></script>
+  <script src="/js/app/app.js"></script>
+  <link rel="stylesheet" type="text/css" href="style/style.css" title="style" />
+</head>
+<script>
+function resetForm(formName) {
+    document.getElementById(formName).reset();
+}
+</script>
+<body ng-app="webber">
+  <div id="main" ng-controller="mainCtl">
+    <div ng-include="'/views/header.html'" id="header"></div>
+	<div id="page_content" ng-include="getInclude()">
+	</div>
+    <div ng-include="'/views/footer.html'" id="footer"></div>
+  </div>
+</body>
+</html>

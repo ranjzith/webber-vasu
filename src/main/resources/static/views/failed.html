@@ -1,0 +1,5 @@
+<table style="width:100%; border-spacing:0;">
+	<tr><th>Log Filename</th><th>Execution Time</th></tr>
+	<tr ng-repeat="record in dashboard.failed"><td name="{{record.filename}}" ng-click="getLog($index, 'failed')">{{record.filename}}</td><td>{{record.exectime}}</td></tr>
+	<tr ng-if="dashboard.failed.length == 0"><td colspan="2" align="center">No records available</td></tr>
+</table>
